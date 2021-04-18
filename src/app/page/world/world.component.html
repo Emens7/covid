@@ -1,0 +1,52 @@
+<h1>Napi nyilvántartás a föld országai</h1>
+
+<div class="col-md-4">
+  <input (keyup)="onFilter($event)" type="text" class="form-control mb-4" placeholder="Szűrés országnév alapján">
+</div>
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th [class.active]="order === 'code'"
+      (click)="setOrder('code')" scope="col" class="th">Ország kód:</th>
+
+      <th [class.active]="order === 'country'"
+      (click)="setOrder('country')" scope="col" class="th">Ország:</th>
+
+      <th [class.active]="order === 'population'"
+      (click)="setOrder('population')" scope="col" class="th">Népesség szám:</th>
+
+      <th [class.active]="order === 'latest_data.deaths'"
+      (click)="setOrder('latest_data.deaths')" scope="col" class="th">Összes elhalálozás:</th>
+
+      <th [class.active]="order === 'today.deaths'"
+      (click)="setOrder('today.deaths')" scope="col" class="th">Halottak száma a mai napon:</th>
+
+      <th [class.active]="order === 'today.confirmed'"
+      (click)="setOrder('today.confirmed')" scope="col" class="th">Fertőzöttek száma a mai napon:</th>
+
+      <th [class.active]="order === 'latest_data.calculated.death_rate'"
+      (click)="setOrder('latest_data.calculated.death_rate')" scope="col" class="th">Halálozás ráta:</th>
+
+      <th [class.active]="order === 'updated_at'"
+      (click)="setOrder('updated_at')" scope="col">Adat frissítés ideje:</th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let country of countries | countryPipe:keyWord | orderBy:order:reverse">
+      <td scope="row">{{country.code}}</td>
+      <td>{{country.name}}</td>
+      <td>{{country.population | number}}</td>
+      <td>{{country.latest_data.deaths | number}}</td>
+      <td>{{country.today.deaths | number}}</td>
+      <td>{{country.today.confirmed | number}}</td>
+      <td>{{country.latest_data.calculated.death_rate | number}}</td>
+      <td>{{country.updated_at | date:'yyyy.MM.dd. HH:mm'}}</td>
+      <td><button [routerLink]="[country.code]" class="btn btn-warning">Bővebben</button></td>
+    </tr>
+
+  </tbody>
+</table>
+

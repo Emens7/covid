@@ -1,0 +1,49 @@
+
+<h1 *ngIf="country">Napi adatok: {{country.name}}</h1>
+
+<div class="col-md-4">
+  <input (keyup)="onFilter($event)" type="text" class="form-control mb-4" placeholder="Szűrés dátum alapján. Pl.:2020.03.04.">
+</div>
+
+<table class="table table-dark" *ngIf = "country">
+  <thead>
+    <tr>
+      <th [class.active]="order === 'date'"
+      (click)="setOrder('date')" scope="col">Dátum:</th>
+
+      <th [class.active]="order === 'deaths'"
+      (click)="setOrder('deaths')" scope="col">Összes elhalálozás:</th>
+
+      <th  [class.active]="order === 'recovered '"
+      (click)="setOrder('recovered ')" scope="col">Felgyógyultak száma:</th>
+
+      <th  [class.active]="order === 'deaths'"
+      (click)="setOrder('deaths')" scope="col">Napi fertőzöttek száma:</th>
+
+      <th  [class.active]="order === 'new_confirmed'"
+      (click)="setOrder('new_confirmed')" scope="col">Napi meggyógyultak száma:</th>
+
+      <th  [class.active]="order === 'new_deaths'"
+      (click)="setOrder('new_deaths')" scope="col">Napi elhunytak száma:</th>
+
+      <th  [class.active]="order === 'active'"
+      (click)="setOrder('active')" scope="col">Fertőzöttek száma:</th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let item of country.timeline | filter:keyWord | orderBy:order:!reverse">
+      <td scope="row">{{item.date | date:'yyyy.MM.dd.'}}</td>
+      <td>{{item.deaths | number }}</td>
+
+      <td>{{item.recovered | number}}</td>
+      <td>{{item.new_confirmed | number}}</td>
+      <td>{{item.new_recovered | number}}</td>
+      <td>{{item.new_deaths | number}}</td>
+      <td>{{item.active | number}}</td>
+    </tr>
+
+  </tbody>
+</table>
+

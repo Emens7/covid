@@ -1,0 +1,26 @@
+h1 {
+  text-align: center;
+  margin: 1.2rem;
+}
+
+h3 {
+  text-align: center;
+  margin: 1.2rem;
+}
+
+.alert {
+  color: red;
+  font-weight: 800;
+}
+
+.th {
+  cursor: pointer;
+  &:hover {
+    background-color: #7c7979;
+  }
+}
+
+table {
+  box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
