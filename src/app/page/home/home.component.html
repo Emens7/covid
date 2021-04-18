@@ -3,9 +3,9 @@
 <h1>Napi adatok Magyarországon</h1>
 
 <div class="row cards">
-  <div *ngFor="let card of cards" class="col-md-4  mx-auto w-auto">
-    <app-card [title]="card.title" [content]="card.content" [footer]="card.footer"></app-card>
-  </div>
+
+  <app-card *ngFor="let card of cards" class="col-md-4 mx-auto w-auto d-flex align-items-stretch" [title]="card.title" [content]="card.content" [footer]="card.footer"></app-card>
+
 </div>
 
 <app-chart></app-chart>
