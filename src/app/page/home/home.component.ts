@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
 
   vaccinationHu?: Vaccination;
 
-  cards: {title: string, content: string, footer: string}[] = [
+  cards: {title: string, content: string, footer?: string}[] = [
 
   ];
 
@@ -54,13 +54,13 @@ export class HomeComponent implements OnInit {
       this.cards.push({
         title: 'Egyszer beoltottak száma',
         content: formatNumber(this.vaccinationHu.people_partially_vaccinated, 'en') + ' fő',
-        footer: //'Frissítve: ' + formatDate(this.vaccinationHu.updated, 'yyyy.MM.dd. HH:mm', 'en'),
+        //footer: 'Frissítve: ' + formatDate(this.vaccinationHu.updated, 'yyyy.MM.dd. HH:mm', 'en'),
       });
 
       this.cards.push({
         title: 'Kétszer beoltottak száma',
         content: formatNumber(this.vaccinationHu.people_vaccinated, 'en') + ' fő',
-        footer: //'Frissítve: ' + formatDate(this.vaccinationHu.updated, 'yyyy.MM.dd. HH:mm', 'en'),
+        //footer: 'Frissítve: ' + formatDate(this.vaccinationHu.updated, 'yyyy.MM.dd. HH:mm', 'en'),
       });
 
       this.getCovidData();
@@ -78,18 +78,18 @@ export class HomeComponent implements OnInit {
       this.cards.push({
         title: 'Új fertőzöttek száma',
         content: String(this.last.confirmed_daily) + ' fő',
-        footer:  //'Frissítve: ' + formatDate(this.last.date, 'yyyy.MM.dd. HH:mm', 'en')
+        //footer:  'Frissítve: ' + formatDate(this.last.date, 'yyyy.MM.dd. HH:mm', 'en')
       });
 
       this.cards.push({
         title: 'Halottak száma a mai napon',
         content: String(this.last.deaths_daily) + ' fő',
-        footer: //'Frissítve: ' + formatDate(this.last.date, 'yyyy.MM.dd. HH:mm', 'en')
+        //footer: 'Frissítve: ' + formatDate(this.last.date, 'yyyy.MM.dd. HH:mm', 'en')
       });
       this.cards.push({
         title: 'Elhunytak száma összesen',
         content: String(this.last.deaths) + ' fő',
-        footer: //'Frissítve: ' + formatDate(this.last.date, 'yyyy.MM.dd. HH:mm', 'en')
+        //footer: 'Frissítve: ' + formatDate(this.last.date, 'yyyy.MM.dd. HH:mm', 'en')
       });
 
     });
