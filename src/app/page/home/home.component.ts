@@ -71,7 +71,7 @@ export class HomeComponent implements OnInit {
       });
 
       this.cards.push({
-        title: 'Halottak száma a mai napon',
+        title: 'Halottak száma a tegnapi napon',
         content: String(this.countryHu.today.deaths) + ' fő',
         footer: 'Frissítve: ' + formatDate(this.countryHu.updated_at, 'yyyy.MM.dd. HH:mm', 'en')
       });
