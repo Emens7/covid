@@ -1,0 +1,15 @@
+export interface DataHopkins {
+  combined_name: string,
+  country: string,
+  country_code: number,
+  country_iso2: string,
+  country_iso3: string,
+  date: string,
+  confirmed: number,
+  deaths: number,
+  recovered: number,
+  confirmed_daily: number,
+  deaths_daily: number,
+  recovered_daily: number,
+  population: number,
+}
